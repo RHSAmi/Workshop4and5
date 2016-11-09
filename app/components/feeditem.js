@@ -4,6 +4,7 @@ import CommentThread from './commentthread';
 import Comment from './comment';
 import {postComment} from '../server';
 import {likeFeedItem} from '../server';
+import {unlikeFeedItem} from '../server';
 export default class FeedItem extends React.Component {
 
   constructor(props) {
@@ -143,6 +144,9 @@ export default class FeedItem extends React.Component {
             return (
               <Comment key={i}
               author={comment.author}
+              feedID={data._id}
+              data={comment}
+              commentID={i}
               postDate={comment.postDate}>
                 {comment.contents}
                 </Comment>
